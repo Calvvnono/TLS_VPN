@@ -1,8 +1,8 @@
 # TLS_VPN
-**Personal solutions to the course project of `Network Security`**
+**Personal solutions to the course project of HUST `Network Security`**
 
 ## Getting Started
-### Environment Setup
+### 1. Environment Setup
 -   **VM:** Ubuntu 16.04
 -   **Docker:** to simulate the client (HostU) and an internal network host (HostV).
 -   **Dependencies:** `openssl` library
@@ -11,7 +11,7 @@
     -   Launch HostU and HostV containers and connect them to the respective `extranet` and `intranet` networks.
     -   Remove the default routes inside the HostU and HostV containers.
 
-### Certificate Acquisition and Configuration
+### 2. Certificate Acquisition and Configuration
 miniVPN utilizes TLS/SSL for secure communication and employs certificates for server authentication. You will need to generate a CA certificate, a server certificate, and optionally, client certificates.
 -   **Generate CA Certificate:** Generate a self-signed Certificate Authority (CA) certificate using the `openssl` tool.
 -   **Generate Server Certificate:**
@@ -25,12 +25,12 @@ miniVPN utilizes TLS/SSL for secure communication and employs certificates for s
 -   Do not use the example domain `vpnserver.com` in your code; use your own domain name and include your name in the server certificate's common name.
 -   Ensure that the generated certificates and private keys are copied to accessible directories before running the project (check the code).
 
-### Running miniVPN
+### 3. Running miniVPN
 
 -   **VPN Server:** Launch the VPN server executable on the designated server machine. Then, configure the `tun0` interface, enable IP forwarding, and clear any existing `iptables` rules.
 -   **VPN Client:** Run the VPN client executable on the HostU machine, connecting to the VPN server's IP address. Configure the `tun0` interface on the client-side as well.
 
-### 5. Routing Configuration
+### 4. Routing Configuration
 
 -   **HostU:** Add a routing rule on HostU to direct traffic destined for the internal network (e.g., 192.168.60.0/24) to the `tun0` interface.
 -   **HostV:** Configure a routing rule on HostV to direct return traffic back to the VPN server. The specific IP address will depend on your setup.
