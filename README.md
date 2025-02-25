@@ -1,5 +1,5 @@
 # TLS_VPN
-**Personal solutions to the course project of HUST `Network Security`**
+**Personal solutions for the course project of HUST `Network Security`**
 
 ## Getting Started
 ### 1. Environment Setup
